@@ -20,7 +20,7 @@ import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 const formSchema = z.object({
-	title: z.string().min(1, {
+	title: z.string().trim().min(2, {
 		message: "Title is required",
 	}),
 });
