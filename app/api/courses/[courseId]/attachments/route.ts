@@ -13,10 +13,13 @@ export async function POST(
 		if (!userId) {
 			userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
 		}
-		const url = await req.json();
-		const { courseId } = params.courseId;
+		const { url } = await req.json();
+		const courseId = params.courseId;
+		console.log(url);
 		console.log(courseId);
-
+		// console.log(url.split("/").pop());
+		// const urlName = url.split("/");
+		// console.log(urlName);
 		if (!userId) {
 			return new NextResponse("Unauthorized ", { status: 401 });
 		}
