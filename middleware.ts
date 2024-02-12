@@ -10,6 +10,7 @@ export default authMiddleware({
 		"/api/webhook",
 		"/api/courses",
 		"/api/courses/:id",
+		"/api/courses/:id/attachments/:id",
 		"/api/uploadthing/",
 	],
 	ignoredRoutes: [
@@ -17,6 +18,8 @@ export default authMiddleware({
 		"/",
 		"/teacher/create",
 		"/teacher/course:id",
+		"/api/courses/:id/:id",
+		"/api/courses/:id/attachments/:id",
 		"/api/courses:id",
 		"/api/uploadthing",
 	],

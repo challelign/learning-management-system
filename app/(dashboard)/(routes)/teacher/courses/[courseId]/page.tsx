@@ -1,13 +1,19 @@
 import { IconBadge } from "@/components/icon-badge";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
-import { LayoutDashboard } from "lucide-react";
+import {
+	CircleDollarSign,
+	File,
+	LayoutDashboard,
+	ListChecks,
+} from "lucide-react";
 import { redirect } from "next/navigation";
 import TitleForm from "./_components/title-form";
 import DescriptionForm from "./_components/description-form";
 import ImageForm from "./_components/image-form";
-import { Combobox } from "@/components/ui/combobox";
 import CategoryForm from "./_components/category-form";
+import PriceForm from "./_components/price-form";
+import AttachmentForm from "./_components/attachment-form";
 
 // courseId must be the same as [courseId]
 const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
@@ -27,6 +33,13 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
 	const course = await db.course.findUnique({
 		where: {
 			id: params.courseId,
+		},
+		include: {
+			attachments: {
+				orderBy: {
+					createdAt: "asc",
+				},
+			},
 		},
 	});
 	const categories = await db.category.findMany({
@@ -83,6 +96,32 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
 								value: category.id,
 							}))}
 						/>
+					</div>
+				</div>
+				<div className="space-y-6">
+					<div>
+						<div className="flex items-center gap-x-2">
+							<IconBadge icon={ListChecks} />
+							<h2>Course Chapters</h2>
+						</div>
+						<div className="">TODO: Chapters</div>
+					</div>
+					<div className="flex items-center gap-x-2">
+						<IconBadge icon={CircleDollarSign} />
+						<h2 className="text-4xl">Sell your course</h2>
+					</div>
+					<div>
+						<PriceForm initialData={course} courseId={course.id} />
+					</div>
+
+					<div>
+						<div className="flex items-center gap-x-2">
+							<IconBadge icon={File} />
+							<h2 className="text-4xl">Resources and Attachment</h2>
+						</div>
+						<div>
+							<AttachmentForm initialData={course} courseId={course.id} />
+						</div>
 					</div>
 				</div>
 			</div>
