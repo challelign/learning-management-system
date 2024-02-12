@@ -11,8 +11,8 @@ export async function DELETE(
 		if (!userId) {
 			userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
 		}
-		const { attachmentId } = params.attachmentId;
-		const { courseId } = params.courseId;
+		const attachmentId = params.attachmentId;
+		const courseId = params.courseId;
 		console.log(attachmentId);
 		console.log(courseId);
 
