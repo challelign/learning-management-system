@@ -8,32 +8,32 @@ import toast from "react-hot-toast";
 
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { Chapter } from "@prisma/client";
-interface ChapterActionsProps {
+import { Course } from "@prisma/client";
+import { useConfettiStore } from "@/hooks/use-confetti-store";
+interface ActionsProps {
 	disabled: boolean;
 	courseId: string;
-	chapterId: string;
 	isPublished: boolean;
-	chapterData: Chapter;
+	chapterData: Course;
 }
-const ChapterActions = ({
+const Actions = ({
 	disabled,
 	courseId,
-	chapterId,
 	isPublished,
 	chapterData,
-}: ChapterActionsProps) => {
+}: ActionsProps) => {
 	// console.log(chapterData);
 	const [isLoading, setIsLoading] = useState(false);
 	const router = useRouter();
+	const confetti = useConfettiStore();
 	const onDelete = async () => {
 		try {
 			setIsLoading(true);
-			await axios.delete(`/api/courses/${courseId}/chapters/${chapterId}`);
-			toast.success("Chapter deleted");
+			await axios.delete(`/api/courses/${courseId}`);
+			toast.success("Course deleted");
 
 			router.refresh();
-			router.push(`/teacher/courses/${courseId}`);
+			router.push(`/teacher/courses`);
 		} catch (error) {
 			console.log(error);
 			toast.error("Something went wrong");
@@ -45,15 +45,12 @@ const ChapterActions = ({
 		try {
 			setIsLoading(true);
 			if (isPublished) {
-				await axios.patch(
-					`/api/courses/${courseId}/chapters/${chapterId}/unpublish`
-				);
-				toast.success("Chapter Unpublished");
+				await axios.patch(`/api/courses/${courseId}/unpublish`);
+				toast.success("Course Unpublished");
 			} else {
-				await axios.patch(
-					`/api/courses/${courseId}/chapters/${chapterId}/publish`
-				);
-				toast.success("Chapter Published");
+				await axios.patch(`/api/courses/${courseId}/publish`);
+				toast.success("Course Published");
+				confetti.onOpen();
 			}
 
 			router.refresh();
@@ -83,4 +80,4 @@ const ChapterActions = ({
 	);
 };
 
-export default ChapterActions;
+export default Actions;

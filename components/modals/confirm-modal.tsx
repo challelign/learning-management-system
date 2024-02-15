@@ -11,19 +11,28 @@ import {
 	AlertDialogTitle,
 	AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Chapter } from "@prisma/client";
 
 interface ConfirmModalProps {
 	children: React.ReactNode;
 	onConfirm: () => void;
+	dataModal: Chapter;
 }
 
-export const ConfirmModal = ({ children, onConfirm }: ConfirmModalProps) => {
+export const ConfirmModal = ({
+	children,
+	onConfirm,
+	dataModal,
+}: ConfirmModalProps) => {
+	// console.log(dataModal);
 	return (
 		<AlertDialog>
 			<AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
 			<AlertDialogContent>
 				<AlertDialogHeader>
-					<AlertDialogTitle>Are you sure?</AlertDialogTitle>
+					<AlertDialogTitle>
+						The chapter title is ` {dataModal.title}` Are you sure?
+					</AlertDialogTitle>
 					<AlertDialogDescription>
 						This action cannot be undone.
 					</AlertDialogDescription>

@@ -13,6 +13,11 @@ export default authMiddleware({
 		"/api/courses/:id/attachments/:id",
 		"/api/courses/:id/chapters/reorder",
 		"/api/courses/:id/chapters/:id",
+		"/api/courses/:id/chapters/:id/publish",
+		"/api/courses/:id/chapters/:id/unpublish",
+		"/api/courses/:id/publish",
+		"/api/courses/:id/unpublish",
+
 		"/api/uploadthing/",
 	],
 	ignoredRoutes: [
@@ -23,6 +28,10 @@ export default authMiddleware({
 		"/api/courses/:id/:id",
 		"/api/courses/:id/attachments/:id",
 		"/api/courses/:id/chapters/reorder",
+		"/api/courses/:id/chapters/:id/publish",
+		"/api/courses/:id/chapters/:id/unpublish",
+		"/api/courses/:id/publish",
+		"/api/courses/:id/unpublish",
 		"/api/courses:id",
 		"/api/uploadthing",
 	],
