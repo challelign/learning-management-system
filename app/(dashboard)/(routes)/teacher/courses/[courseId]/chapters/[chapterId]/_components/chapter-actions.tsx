@@ -8,13 +8,13 @@ import toast from "react-hot-toast";
 
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { Chapter } from "@prisma/client";
+import { Chapter, Course } from "@prisma/client";
 interface ChapterActionsProps {
 	disabled: boolean;
 	courseId: string;
 	chapterId: string;
 	isPublished: boolean;
-	chapterData: Chapter;
+	chapterData: Course & { chapters: Chapter[] };
 }
 const ChapterActions = ({
 	disabled,

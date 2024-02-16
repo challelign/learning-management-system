@@ -8,13 +8,13 @@ import toast from "react-hot-toast";
 
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { Course } from "@prisma/client";
+import { Chapter, Course } from "@prisma/client";
 import { useConfettiStore } from "@/hooks/use-confetti-store";
 interface ActionsProps {
 	disabled: boolean;
 	courseId: string;
 	isPublished: boolean;
-	chapterData: Course;
+	chapterData: Course & { chapters: Chapter[] };
 }
 const Actions = ({
 	disabled,
