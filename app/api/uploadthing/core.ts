@@ -6,9 +6,9 @@ import { isTeacher } from "@/lib/teacher";
 const f = createUploadthing();
 
 const handleAuth = () => {
-	let { userId } = auth();
-	console.log(userId);
-
+	// let { userId } = auth();
+	// console.log(userId);
+	let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
 	if (!userId) {
 		userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
 	}

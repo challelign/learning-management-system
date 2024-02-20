@@ -18,6 +18,8 @@ const CategoryItem = ({ label, value, icon: Icon }: CategoryItemProps) => {
 	const searchParams = useSearchParams();
 	const currentCategoryId = searchParams.get("categoryId");
 	const currentTitle = searchParams.get("title");
+	// const currentTitle = searchParams.get("title") || null;
+	console.log(currentTitle);
 
 	const isSelected = currentCategoryId === value;
 
