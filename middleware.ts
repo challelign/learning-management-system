@@ -8,6 +8,7 @@ export default authMiddleware({
 	publicRoutes: [
 		"/",
 		"/api/webhook",
+		"/api/courses/:id/checkout",
 		"/api/courses",
 		"/api/courses/:id",
 		"/api/courses/:id/attachments/:id",
@@ -34,6 +35,8 @@ export default authMiddleware({
 		"/api/courses/:id/unpublish",
 		"/api/courses:id",
 		"/api/uploadthing",
+		"/api/webhook",
+		"/api/courses/:id/checkout",
 	],
 });
 

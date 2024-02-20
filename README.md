@@ -4,6 +4,23 @@
 
 This is a repository for Build an LMS Platform: Next.js 14, React, Stripe, Mux, Prisma, Tailwind, MySQL | Full Course 2023
 
+Open stripe CLi as admin
+
+incomplete step 1
+Download the CLI and log in with your Stripe account
+
+# open cmd in the stripe cli folder and
+
+# type this ->stripe login
+
+# then will get like this url
+
+# https://dashboard.stripe.com/stripecli/confirm_auth?t=gnbA6kpDsqEJLROnw4smcpGMHToiJFjd
+
+# run this again
+
+# stripe listen --forward-to localhost:3000/api/webhook
+
 Key Features:
 
 - Browse & Filter Courses
