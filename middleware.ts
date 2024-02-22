@@ -16,6 +16,7 @@ export default authMiddleware({
 		"/api/courses/:id/chapters/:id",
 		"/api/courses/:id/chapters/:id/publish",
 		"/api/courses/:id/chapters/:id/unpublish",
+		"/api/courses/:id/chapters/:id/progress",
 		"/api/courses/:id/publish",
 		"/api/courses/:id/unpublish",
 
@@ -31,6 +32,7 @@ export default authMiddleware({
 		"/api/courses/:id/chapters/reorder",
 		"/api/courses/:id/chapters/:id/publish",
 		"/api/courses/:id/chapters/:id/unpublish",
+		"/api/courses/:id/chapters/:id/progress",
 		"/api/courses/:id/publish",
 		"/api/courses/:id/unpublish",
 		"/api/courses:id",

@@ -3,7 +3,7 @@
 import { UserButton } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { LogOut } from "lucide-react";
+import { LogOut, MoveRight } from "lucide-react";
 import Link from "next/link";
 import SearchInput from "./search-input";
 
@@ -31,7 +31,7 @@ const NavbarRoutes = () => {
 				) : (
 					<Link href="/teacher/courses">
 						<Button size="sm" variant="ghost">
-							Teacher mode
+							<MoveRight className="text-red-800 " /> Teacher mode
 						</Button>
 					</Link>
 				)}
