@@ -6,9 +6,8 @@ import InfoCard from "./_components/iInfo-card";
 import { CheckCircle, Clock } from "lucide-react";
 
 export default async function Dashboard() {
-	// let { userId } = auth();
+	let { userId } = auth();
 
-	let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
 	if (!userId) {
 		return redirect("/");
 	}

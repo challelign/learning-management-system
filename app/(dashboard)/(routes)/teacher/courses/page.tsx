@@ -9,9 +9,8 @@ export const metadata: Metadata = {
 	description: "Leaning Management System |LMS",
 };
 const CoursesPage = async () => {
-	// let { userId } = auth();
+	let { userId } = auth();
 
-	let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
 	if (!userId) {
 		return redirect("/");
 	}

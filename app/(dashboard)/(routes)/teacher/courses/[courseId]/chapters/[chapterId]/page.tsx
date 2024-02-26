@@ -21,16 +21,11 @@ const ChapterIdPage = async ({
 }: {
 	params: { courseId: string; chapterId: string };
 }) => {
-	// const { userId } = auth();
+	const { userId } = auth();
 
-	let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
 	if (!userId) {
-		userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
+		return redirect("/");
 	}
-
-	// if (!userId) {
-	// 	return redirect("/");
-	// }
 
 	const chapter = await db.chapter.findUnique({
 		where: {

@@ -95,8 +95,7 @@ export async function PATCH(
 	{ params }: { params: { courseId: string; chapterId: string } }
 ) {
 	try {
-		// const { userId } = auth();
-		let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
+		const { userId } = auth();
 		const { isPublished, ...values } = await req.json();
 
 		if (!userId) {

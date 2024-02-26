@@ -8,11 +8,7 @@ export async function PATCH(
 	{ params }: { params: { courseId: string; chapterId: string } }
 ) {
 	try {
-		/* 	let { userId } = auth();
-		if (!userId) {
-			userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
-		} */
-		let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
+		let { userId } = auth();
 
 		if (!userId) {
 			return new NextResponse("Unauthorized", { status: 401 });

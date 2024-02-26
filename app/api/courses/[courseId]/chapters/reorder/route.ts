@@ -7,12 +7,7 @@ export async function PUT(
 	{ params }: { params: { courseId: string } }
 ) {
 	try {
-		// let { userId } = auth();
-		// if (!userId) {
-		// 	userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
-		// }
-
-		let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
+		let { userId } = auth();
 
 		const { list } = await req.json();
 		if (!userId) {

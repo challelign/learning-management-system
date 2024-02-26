@@ -13,11 +13,8 @@ export async function DELETE(
 	{ params }: { params: { courseId: string; chapterId: string } }
 ) {
 	try {
-		/* 	let { userId } = auth();
-		if (!userId) {
-			userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
-		} */
-		let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
+		  	let { userId } = auth();
+	 
 		const courseId = params.courseId;
 		const chapterId = params.chapterId;
 

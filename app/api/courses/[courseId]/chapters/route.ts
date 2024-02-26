@@ -7,11 +7,8 @@ export async function POST(
 	{ params }: { params: { courseId: string } }
 ) {
 	try {
-		/* 	let { userId } = auth();
-		if (!userId) {
-			userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
-		} */
-		let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
+		const { userId } = auth();
+
 		const { title } = await req.json();
 		const courseId = params.courseId;
 

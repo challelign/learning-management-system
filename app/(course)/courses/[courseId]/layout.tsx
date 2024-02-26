@@ -12,9 +12,7 @@ const CourseLayout = async ({
 	children: React.ReactNode;
 	params: { courseId: string };
 }) => {
-	// let { userId } = auth();
-
-	let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
+	const { userId } = auth();
 	if (!userId) {
 		return redirect("/");
 	}

@@ -22,19 +22,13 @@ import Link from "next/link";
 
 // courseId must be the same as [courseId]
 const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
-	// let { userId } = auth();
+	let { userId } = auth();
 
-	let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
 	// console.log(userId);
-	console.log(userId);
 
 	if (!userId) {
-		userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
+		return redirect("/");
 	}
-
-	// if (!userId) {
-	// 	return redirect("/");
-	// }
 	const course = await db.course.findUnique({
 		where: {
 			id: params.courseId,

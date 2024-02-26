@@ -5,8 +5,7 @@ import DataCard from "./_components/data-card";
 import { Chart } from "./_components/chart";
 
 const Analytics = async () => {
-	// const { userId } = auth();
-	let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
+	const { userId } = auth();
 	if (!userId) {
 		return redirect("/");
 	}

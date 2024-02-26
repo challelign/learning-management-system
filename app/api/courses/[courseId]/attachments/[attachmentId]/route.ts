@@ -8,9 +8,7 @@ export async function DELETE(
 ) {
 	try {
 		let { userId } = auth();
-		if (!userId) {
-			userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
-		}
+
 		const attachmentId = params.attachmentId;
 		const courseId = params.courseId;
 		console.log(attachmentId);

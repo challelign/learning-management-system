@@ -14,10 +14,6 @@ export async function DELETE(
 ) {
 	try {
 		let { userId } = auth();
-		if (!userId) {
-			userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
-		}
-		// let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
 
 		// console.log(values);
 		if (!userId) {
@@ -66,11 +62,6 @@ export async function PATCH(
 	try {
 		let { userId } = auth();
 		console.log(userId);
-
-		if (!userId) {
-			userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
-		}
-		// let userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
 		const { courseId } = params;
 		const values = await req.json();
 		console.log(courseId);
