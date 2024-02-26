@@ -1,12 +1,30 @@
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { DataTable } from "./_components/data-table";
+import { columns } from "./_components/columns";
+import { auth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+import { db } from "@/lib/db";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+	title: "LMS | Course list",
+	description: "Leaning Management System |LMS",
+};
+const CoursesPage = async () => {
+	let { userId } = auth();
 
-const CoursesPage = () => {
+	if (!userId) {
+		return redirect("/");
+	}
+	const course = await db.course.findMany({
+		where: {
+			userId,
+		},
+		orderBy: {
+			createdAt: "desc",
+		},
+	});
 	return (
 		<div className="p-6">
-			<Link href="/teacher/create">
-				<Button>New Course</Button>
-			</Link>
+			<DataTable columns={columns} data={course} />
 		</div>
 	);
 };

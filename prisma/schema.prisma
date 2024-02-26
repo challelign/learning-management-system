@@ -66,7 +66,7 @@ model Chapter {
   courseId String
   course   Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
-  userProgress UserProgress[]
+  userProgress UserProgress[] //array
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

@@ -7,11 +7,6 @@ const f = createUploadthing();
 
 const handleAuth = () => {
 	let { userId } = auth();
-	console.log(userId);
-
-	if (!userId) {
-		userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
-	}
 
 	// const isAuthorized = isTeacher(userId);
 

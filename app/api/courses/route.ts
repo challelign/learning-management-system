@@ -7,9 +7,6 @@ export async function POST(req: Request) {
 		let { userId } = auth();
 		console.log(userId);
 
-		if (!userId) {
-			userId = "user_2c7WDRhRgaTXgF3G3JIaInZbQD4";
-		}
 		console.log(userId);
 		const { title } = await req.json();
 		if (!userId) {
