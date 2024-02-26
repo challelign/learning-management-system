@@ -3,7 +3,7 @@ import { db } from "@/lib/db";
 export const getProgress = async (
 	userId: string,
 	courseId: string
-): Promise<Number> => {
+): Promise<number> => {
 	try {
 		// Get all ids of the published chapters
 		const publishedChapters = await db.chapter.findMany({

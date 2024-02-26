@@ -12,6 +12,7 @@ export async function POST(
 	try {
 		const user = await currentUser();
 
+		console.log("USER", user);
 		if (!user || !user.id || !user.emailAddresses?.[0]?.emailAddress) {
 			return new NextResponse("Unauthorized", { status: 401 });
 		}
@@ -87,7 +88,7 @@ export async function POST(
 				userId: user.id,
 			},
 		});
-
+		console.log("[SESSION]", session);
 		return NextResponse.json({ url: session.url });
 	} catch (error) {
 		console.log("[COURSE_ID_CHECKOUT]", error);

@@ -59,6 +59,12 @@ export const getChapter = async ({
 				},
 			});
 
+			console.log('["COURSE', course);
+			console.log('["PURCHASE', purchase);
+
+			console.log('["MUX_DATA', muxData);
+			console.log('["CHAPTER', chapter);
+
 			nextChapter = await db.chapter.findFirst({
 				where: {
 					courseId: courseId,
@@ -71,6 +77,7 @@ export const getChapter = async ({
 					position: "asc",
 				},
 			});
+			console.log('["NEXT_CHAPTER', nextChapter);
 		}
 		const userProgress = await db.userProgress.findUnique({
 			where: {
@@ -80,6 +87,8 @@ export const getChapter = async ({
 				},
 			},
 		});
+
+		console.log('["USER_PROGRESS', userProgress);
 
 		return {
 			chapter,
