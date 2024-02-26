@@ -14,7 +14,7 @@ interface ChapterActionsProps {
 	courseId: string;
 	chapterId: string;
 	isPublished: boolean;
-	chapterData: Course & { chapters: Chapter[] };
+	chapterData?: Course & { chapters: Chapter[] };
 }
 const ChapterActions = ({
 	disabled,
