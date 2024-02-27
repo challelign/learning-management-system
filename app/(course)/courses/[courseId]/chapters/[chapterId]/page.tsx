@@ -85,7 +85,7 @@ const ChapterIdPage = async ({
 					<div>
 						<Preview value={chapter.description!} />
 					</div>
-					{!attachments.lastIndexOf && (
+					{!!attachments.length && (
 						<div className="p-4">
 							{attachments.map((attachment) => (
 								<a
