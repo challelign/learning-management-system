@@ -23,7 +23,7 @@ const NavbarRoutes = () => {
 			<div className="flex gap-x-2 ml-auto">
 				{isCoursePage && (
 					<Link
-						href={`/teacher/courses/search`}
+						href={`/search`}
 						className="flex items-center text-sm hover:opacity-75 transition "
 					>
 						<Button size="sm" variant="ghost">
