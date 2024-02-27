@@ -3,7 +3,7 @@
 import { UserButton } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { LogOut, MoveRight } from "lucide-react";
+import { ArrowLeft, LogOut, MoveRight } from "lucide-react";
 import Link from "next/link";
 import SearchInput from "./search-input";
 
@@ -21,6 +21,14 @@ const NavbarRoutes = () => {
 				</div>
 			)}
 			<div className="flex gap-x-2 ml-auto">
+				{isCoursePage && (
+					<Link
+						href={`/teacher/courses/search`}
+						className="flex items-center text-sm hover:opacity-75 transition mb-6"
+					>
+						<ArrowLeft className="h-4 w-4 mr-2" /> Back to course
+					</Link>
+				)}
 				{isTeacherPage || isCoursePage ? (
 					<Link href="/">
 						<Button size="sm" variant="ghost">
