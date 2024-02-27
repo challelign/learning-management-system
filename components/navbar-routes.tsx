@@ -24,9 +24,11 @@ const NavbarRoutes = () => {
 				{isCoursePage && (
 					<Link
 						href={`/teacher/courses/search`}
-						className="flex items-center text-sm hover:opacity-75 transition mb-6"
+						className="flex items-center text-sm hover:opacity-75 transition "
 					>
-						<ArrowLeft className="h-4 w-4 mr-2" /> Back to course
+						<Button size="sm" variant="ghost">
+							<ArrowLeft className="h-4 w-4 mr-2" /> Back to course
+						</Button>
 					</Link>
 				)}
 				{isTeacherPage || isCoursePage ? (
