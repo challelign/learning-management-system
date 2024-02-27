@@ -23,20 +23,38 @@ export async function POST(req: Request) {
 		});
 	}
 
-	const session = event.data.object as Stripe.Checkout.Session;
+	// start to un comment
+	// and remove the code if (event.type === "checkout.session.completed") {}
+	// based on the comment in their
+	/* 	const session = event.data.object as Stripe.Checkout.Session;
 	console.log("[SESSION]", session);
 	const userId = session?.metadata?.userId;
 	const courseId = session?.metadata?.chapterId;
 
 	console.log("USER_ID", userId);
-	console.log("COURSE_ID", courseId);
+	console.log("COURSE_ID", courseId); */
+
+	// end to uncomment
 	if (event.type === "checkout.session.completed") {
+		// start to remove
+		const session = event.data.object as Stripe.Checkout.Session;
+		console.log("[SESSION]", session);
+		const userId = session?.metadata?.userId;
+		const courseId = session?.metadata?.chapterId;
+
+		console.log("USER_ID", userId);
+		console.log("COURSE_ID", courseId);
+
+		// end to remove
 		console.log("USER_ID", userId);
 		console.log("COURSE_ID", courseId);
 		if (!userId || !courseId) {
-			return new NextResponse(`Webhook Error : Missing metadata `, {
-				status: 400,
-			});
+			return new NextResponse(
+				`Webhook Error : Missing metadata [USER_ID_ID=>] ${userId} and [COURSE_ID_IS=>] ${courseId}`,
+				{
+					status: 400,
+				}
+			);
 		}
 		const purchaseInfo = await db.purchase.create({
 			data: {
