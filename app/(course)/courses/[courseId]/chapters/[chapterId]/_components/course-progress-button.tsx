@@ -38,6 +38,8 @@ const CourseProgressButton = ({
 			if (!isCompleted && nextChapterId) {
 				router.push(`/courses/${courseId}/chapters/${nextChapterId}`);
 			}
+			toast.success("Progress Updated");
+			router.refresh();
 		} catch (error) {
 			console.log("[Course_Progress_completed]", error);
 			toast.error("Something went wrong !");
