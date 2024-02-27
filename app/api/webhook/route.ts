@@ -6,7 +6,7 @@ import { db } from "@/lib/db";
 
 export async function POST(req: Request) {
 	const body = await req.text();
-	const signature = headers().get("Stripe-Signature") as string;
+	const signature = headers().get("stripe-signature") as string;
 
 	let event: Stripe.Event;
 
@@ -38,16 +38,14 @@ export async function POST(req: Request) {
 	if (event.type === "checkout.session.completed") {
 		// start to remove
 		const session = event.data.object as Stripe.Checkout.Session;
-		console.log("[SESSION]", session);
+		console.log("[SESSION_DATA]", session);
 		const userId = session?.metadata?.userId;
-		const courseId = session?.metadata?.chapterId;
+		const courseId = session?.metadata?.courseId;
 
-		console.log("USER_ID", userId);
-		console.log("COURSE_ID", courseId);
+		console.log("USER_ID=>", userId);
+		console.log("COURSE_ID=>", courseId);
 
 		// end to remove
-		console.log("USER_ID", userId);
-		console.log("COURSE_ID", courseId);
 		if (!userId || !courseId) {
 			return new NextResponse(
 				`Webhook Error : Missing metadata [USER_ID_ID=>] ${userId} and [COURSE_ID_IS=>] ${courseId}`,

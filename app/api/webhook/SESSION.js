@@ -1,0 +1,86 @@
+[SESSION] 
+{
+  id: 'cs_test_a17mg8NFniTnarBdE916dz3RIrqpjL3vbT3tYIbm8yT6qmY2fq8huCElYH',
+  object: 'checkout.session',
+  after_expiration: null,
+  allow_promotion_codes: null,
+  amount_subtotal: 2500,
+  amount_total: 2500,
+  automatic_tax: { enabled: false, liability: null, status: null },
+  billing_address_collection: null,
+  cancel_url: 'https://learning-management-system-gamma.vercel.app/courses/4e303045-b313-43ea-a3bd-8cbe2160f9c7?canceled=1',
+  client_reference_id: null,
+  client_secret: null,
+  consent: null,
+  consent_collection: null,
+  created: 1709023891,
+  currency: 'usd',
+  currency_conversion: null,
+  custom_fields: [],
+  custom_text: {
+    after_submit: null,
+    shipping_address: null,
+    submit: null,
+    terms_of_service_acceptance: null
+  },
+  customer: 'cus_PdbWHwwjmbwLEg',
+  customer_creation: null,
+  customer_details: {
+    address: {
+      city: null,
+      country: 'ET',
+      line1: null,
+      line2: null,
+      postal_code: null,
+      state: null
+    },
+    email: 'landofminilik@gmail.com',
+    name: 'check test',
+    phone: null,
+    tax_exempt: 'none',
+    tax_ids: []
+  },
+  customer_email: null,
+  expires_at: 1709110290,
+  invoice: null,
+  invoice_creation: {
+    enabled: false,
+    invoice_data: {
+      account_tax_ids: null,
+      custom_fields: null,
+      description: null,
+      footer: null,
+      issuer: null,
+      metadata: {},
+      rendering_options: null
+    }
+  },
+  livemode: false,
+  locale: null,
+  metadata: {
+    userId: 'user_2cwHs4VfQbgDCN7db7LwZ1xHYpC',
+    courseId: '4e303045-b313-43ea-a3bd-8cbe2160f9c7'
+  },
+  mode: 'payment',
+  payment_intent: 'pi_3OoMOOJRkZKqyrOP0Wx1at37',
+  payment_link: null,
+  payment_method_collection: 'if_required',
+  payment_method_configuration_details: { id: 'pmc_1OnxdqJRkZKqyrOPC3MacO3Q', parent: null },
+  payment_method_options: {},
+  payment_method_types: [ 'card', 'link' ],
+  payment_status: 'paid',
+  phone_number_collection: { enabled: false },
+  recovered_from: null,
+  setup_intent: null,
+  shipping_address_collection: null,
+  shipping_cost: null,
+  shipping_details: null,
+  shipping_options: [],
+  status: 'complete',
+  submit_type: null,
+  subscription: null,
+  success_url: 'https://learning-management-system-gamma.vercel.app/courses/4e303045-b313-43ea-a3bd-8cbe2160f9c7?success=1',
+  total_details: { amount_discount: 0, amount_shipping: 0, amount_tax: 0 },
+  ui_mode: 'hosted',
+  url: null
+}
