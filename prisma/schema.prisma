@@ -9,6 +9,11 @@ generator client {
   previewFeatures = ["fullTextSearch", "fullTextIndex"]
 }
 
+// Course has a many-to-one relationship with Category.
+// Course has a one-to-many relationship with Attachment.
+// Course has a one-to-many relationship with Chapter.
+// Course has a one-to-many relationship with Purchase.
+
 model Course {
   id          String  @id @default(uuid())
   userId      String
@@ -32,11 +37,15 @@ model Course {
   @@fulltext([title])
 }
 
+// Category has a one-to-many relationship with Course  
+
 model Category {
   id      String   @id @default(uuid())
   name    String   @unique
   courses Course[]
 }
+
+// Attachment has a many-to-one relationship with Cours 
 
 model Attachment {
   id   String @id @default(uuid())
@@ -51,6 +60,9 @@ model Attachment {
 
   @@index([courseId])
 }
+
+// Chapter has a many-to-one relationship with Course  
+// Chapter has a one-to-one relationship with MuxData  
 
 model Chapter {
   id          String  @id @default(uuid())
@@ -74,6 +86,8 @@ model Chapter {
   @@index([courseId])
 }
 
+// MuxData has a one-to-one relationship with Chapter  
+
 model MuxData {
   id         String  @id @default(uuid())
   assetId    String
@@ -82,6 +96,9 @@ model MuxData {
   chapterId String  @unique
   chapter   Chapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
 }
+
+// UserProgress has a many-to-one relationship with Chapter (many user progresses can be associated with one chapter).
+// UserProgress has a unique constraint on the combination of userId and chapterId, ensuring a user can mark a chapter as completed only once.
 
 model UserProgress {
   id     String @id @default(uuid())
@@ -99,6 +116,9 @@ model UserProgress {
   @@index([chapterId])
 }
 
+// Purchase has a many-to-one relationship with Course 
+// Purchase has a unique constraint on the combination of userId and courseId, ensuring a user can purchase a course only once.
+
 model Purchase {
   id     String @id @default(uuid())
   userId String
@@ -112,6 +132,9 @@ model Purchase {
   @@unique([userId, courseId])
   @@index([courseId])
 }
+
+// StripeCustomer represents a separate entity for handling Stripe-related data.
+// StripeCustomer has a one-to-one relationship with User (one Stripe customer corresponds to one user). 
 
 model StripeCustomer {
   id               String @id @default(uuid())
