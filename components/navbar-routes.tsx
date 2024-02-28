@@ -1,11 +1,12 @@
 "use client";
 
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, auth, useAuth } from "@clerk/nextjs";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, LogOut, MoveRight } from "lucide-react";
 import Link from "next/link";
 import SearchInput from "./search-input";
+import { isTeacher } from "@/lib/teacher";
 
 const NavbarRoutes = () => {
 	const pathname = usePathname();
@@ -13,6 +14,7 @@ const NavbarRoutes = () => {
 	const isCoursePage = pathname?.includes("/courses");
 
 	const isSearchPage = pathname === "/search";
+	const { userId } = useAuth();
 	return (
 		<>
 			{isSearchPage && (
@@ -38,13 +40,13 @@ const NavbarRoutes = () => {
 							Exit
 						</Button>
 					</Link>
-				) : (
+				) : isTeacher(userId) ? (
 					<Link href="/teacher/courses">
 						<Button size="sm" variant="ghost">
 							<MoveRight className="text-red-800 " /> Teacher mode
 						</Button>
 					</Link>
-				)}
+				) : null}
 				{/* this help when we logout it will not redirect to clerk site */}
 				<UserButton afterSignOutUrl="/" />
 			</div>
